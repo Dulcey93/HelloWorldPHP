@@ -1,5 +1,7 @@
 {
     "conventionalCommits.scopes": [
-        "Beggin"
+        "Beggin",
+        "New scope",
+        "New Scope"
     ]
 }
