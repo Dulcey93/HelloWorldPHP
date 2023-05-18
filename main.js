@@ -1,20 +1,14 @@
-let btn = document.getElementById('btn');
 let form = document.querySelector('form');
-let URI = 'http://localhost/SpUkM01-095/HelloWorldPHP';
-/* let URI = 'http://localhost/SpUkM01-095/HelloWorldPHP';
-btn.addEventListener('click', async (e) => {
-    let res = await fetch(`${URI}/api.php?name=John&age=30`);
-    let data = await res.json();
-    console.log(data);
-    });
- */
-btn.addEventListener('click', async (e) => {
-    let res = await fetch(`${URI}/api.php`);
-    let data = await res.json();
-    });
+
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    let res = await fetch(`${URI}/api.php?name=${form.name.value}&age=${form.age.value}`);
-    let data = await res.json();
-    console.log(data);
-    });
+    let myHeaders = new Headers({"Content-Type": "application/json"});
+    let data = Object.fromEntries(new FormData(e.target));
+    let config = {
+        method: 'POST',
+        headers: myHeaders,
+        body: JSON.stringify(data)
+    };
+    let res = await fetch("api.php", config).then(res => res.text());
+    document.querySelector('pre').innerHTML = res;
+});

@@ -16,13 +16,21 @@
     <div class="container">
         <!-- Formulario con el nombre y edad -->
         <div class="formulario">
-            <form action="" autocomplete="off">
+            <form action="api.php" autocomplete="off" method="POST" enctype="multipart/form-data">
                 <h3>Ingresa tus datos</h3>
                 <input type="text" name="nombre" id="nombre" placeholder="Nombre">
                 <input type="number" name="edad" id="edad" placeholder="Edad">
+                <!-- <input type="file" name="archivo"><br> -->
+                <span>Pasatiempos</span>
+                <div>
+                    <input type="checkbox" name="pasatiempos" value="Musica"><label>Musica</label>
+                    <input type="checkbox" name="pasatiempos" value="Cocina"><label>Cocina</label>
+                    <input type="checkbox" name="pasatiempos" value="Ligofleyens"><label>Ligofleyes</label>
+                </div>
                 <button type="submit">Enviar</button>
             </form>
         </div>
     </div>
+    <pre></pre>
 </body>
 </html>
